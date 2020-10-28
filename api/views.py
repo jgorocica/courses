@@ -1,13 +1,29 @@
+# Django tools
 from django.shortcuts import render
-from rest_framework import viewsets, permissions
+
+# Models 
 from .models import Courses, Lessons, Questions
+
+# Serializers
 from .serializers import CourseSerializer, LessonSerializer, QuestionSerializer
+
+# Rest Framework tools
+from rest_framework.decorators import action
+from rest_framework import viewsets, permissions
+
+
 
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Courses.objects.all().order_by('-created_at')
     serializer_class = CourseSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    @action(detail=True)
+    def lessons(self, request, *args, **kwargs):
+        course = self.get_object()
+        return Response(course)
+
 
 
 class LessonViewSet(viewsets.ModelViewSet):

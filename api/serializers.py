@@ -15,9 +15,19 @@ class CourseSerializer(serializers.ModelSerializer):
         many=True
     )
 
+    lessons = serializers.HyperlinkedRelatedField(
+        many=True, 
+        read_only=True,
+        view_name='lessons-detail'
+    )
+    
+
+
     class Meta: 
         model = Courses
-        fields = ['id', 'title', 'professor', 'students', 'created_at']
+        fields = ['id', 'title', 'professor', 'students', 'lessons', 'created_at']
+
+
 
 
 class LessonSerializer(serializers.ModelSerializer):
