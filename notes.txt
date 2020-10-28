@@ -1,6 +1,7 @@
 1. Create Dockerfile and docker-compose [DONE]
 2. Setup the project [DONE]
-3. Init the repository and push base commit 
+3. Init the repository and push base commit [DONE]
+4. Create models [DONE]
 . Get a list of all courses, telling which ones the student can access
 . Get lessons for a course, telling which ones the student can access
 . Get lesson details for answering its questions
