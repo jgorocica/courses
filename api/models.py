@@ -49,6 +49,16 @@ class RelationStudentsCourses(models.Model):
     approved = models.BooleanField(default=False, verbose_name='Aprobado')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
 
+    class Meta:
+        verbose_name = 'Relación Estudiante-Curso'
+        verbose_name_plural = 'Relación Estudiantes-Cursos'
+
+    def get_student_name(self):
+        return '%s %s' % (self.student.user.first_name, self.student.user.last_name)
+
+    def get_course_name(self):
+        return '%s' % (self.course.title)
+
 
 class Lessons(models.Model):
     title = models.CharField(max_length=100, verbose_name='Título') 

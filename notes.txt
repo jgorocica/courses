@@ -4,7 +4,7 @@
 4. Create models [DONE]
 5. Create some dump data [DONE]
 6. Basic CRUD for courses, lessons and questions [DONE]
-. Get a list of all courses, telling which ones the student can access
+7. Get a list of all courses, telling which ones the student can access [DONE]
 . Get lessons for a course, telling which ones the student can access
 . Get lesson details for answering its questions
 . Take a lesson (to avoid several requests, they asked to send all answers in one go)

@@ -10,10 +10,14 @@ class CourseSerializer(serializers.ModelSerializer):
     professor = serializers.StringRelatedField(
         many=False,
     )
+    
+    students = serializers.StringRelatedField(
+        many=True
+    )
 
     class Meta: 
         model = Courses
-        fields = ['id', 'title', 'professor', 'created_at']
+        fields = ['id', 'title', 'professor', 'students', 'created_at']
 
 
 class LessonSerializer(serializers.ModelSerializer):
