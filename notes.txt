@@ -1,0 +1,60 @@
+1. Create Dockerfile and docker-compose [DONE]
+2. Setup the project [DONE]
+3. Init the repository and push base commit 
+. Get a list of all courses, telling which ones the student can access
+. Get lessons for a course, telling which ones the student can access
+. Get lesson details for answering its questions
+. Take a lesson (to avoid several requests, they asked to send all answers in one go)
+. Basic CRUD for courses, lessons and questions
+
+
+
+/* BASE TABLES */
+
+Class Users: 
+	id, 
+	first_name, 
+	last_name, 	
+		
+Class Professors and Students extends from Users:
+	user_id,
+	type_user (s=student, p=professor)
+
+
+Class Courses: 
+	id, 
+	title, 
+	description, 
+	correlative_id (itself), 
+	approved, 
+	user_id, 
+	created_at, 
+	
+Class Lessons:
+	id, 
+	title, 
+	correlative_id (itself),
+	mandatory, 
+	approval_score, 
+	created_at, 
+	
+Class Questions:
+	id, 
+	question, 
+	score, 
+	type, 
+	created_at 
+	
+	
+/* RELATION TABLES */
+
+Class RelationCoursesLessons:
+	id, 
+	course_id, 
+	lesson_id
+	
+Class RelationLessonsQuestions:
+	id, 
+	lesson_id, 
+	question_id
+	
