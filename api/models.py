@@ -100,7 +100,7 @@ class RelationStudentsLessons(models.Model):
 
 
 class Answers(models.Model):
-    question = models.ForeignKey('Questions', on_delete=models.CASCADE, verbose_name='Pregunta')
+    question = models.ForeignKey('Questions', on_delete=models.CASCADE, blank=False, null=True, verbose_name='Pregunta')
     title = models.CharField(max_length=100, verbose_name='Respuesta')
     is_correct = models.BooleanField(default=False, verbose_name='¿Esta respuesta es correcta?')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
@@ -111,3 +111,6 @@ class Answers(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_question_title(self):
+        return '%s' % self.question.title

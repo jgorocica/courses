@@ -15,9 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.schemas import get_schema_view
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')), 
-    path('', include('api.urls'))
+    path('api/v1/', include('api.urls')), 
+    path('openapi', get_schema_view(
+    title="Dacodes Backend",
+    description="API for e-learning ",
+    version="1.0.0"
+    ), name='openapi-schema'),
+    path('redoc/', TemplateView.as_view(
+        template_name='api/redoc.html',
+        extra_context={'schema_url': 'openapi-schema'}
+    ), name='redoc'),
 ]

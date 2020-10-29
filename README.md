@@ -1,3 +1,16 @@
+# Instructions 
+
+### How to run the API 
+>  `$ cp docker-compose.yml.example cp docker-compose.yml` 
+
+>  `$ docker-compose up`
+
+> Username: admin Password: admin1234 
+
+> the API's frontend is located at http://localhost:8000/api/v1/redoc
+
+> There are three types of users: 1. Admin, 2. Professor, 3. Student 
+
 # Backend developer position challenge
 
 #### Description

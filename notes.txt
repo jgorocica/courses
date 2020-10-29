@@ -5,7 +5,7 @@
 5. Create some dump data [DONE]
 6. Basic CRUD for courses, lessons and questions [DONE]
 7. Get a list of all courses, telling which ones the student can access [DONE]
-8. Get lessons for a course, telling which ones the student can access
-. Get lesson details for answering its questions
-. Take a lesson (to avoid several requests, they asked to send all answers in one go)
-
+8. Get lessons for a course, telling which ones the student can access[DONE]
+9. Get lesson details for answering its questions [DONE]
+10. Take a lesson (to avoid several requests, they asked to send all answers in one go) 
+11. Add Frontend [DONE]
