@@ -9,7 +9,9 @@
 
 > the API's frontend is located at http://localhost:8000/api/v1/redoc
 
-> There are three types of users: 1. Admin, 2. Professor, 3. Student 
+> In redoc the last "createLesson" is for enroll a lesson. 
+
+> In redoc the last "createRelationStudentlesson" is for take a lesson. 
 
 # Backend developer position challenge
 
