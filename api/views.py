@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from .models import (Courses, Lessons, Questions, Answers, 
                     RelationStudentsCourses, RelationStudentsLessons, 
                     Students)
+from django.db.models import Value as V
 
 # Serializers
 from .serializers import (CourseSerializer, LessonSerializer, 
@@ -34,6 +35,7 @@ class LessonViewSet(viewsets.ModelViewSet):
     queryset = Lessons.objects.all().order_by('-created_at')
     serializer_class = LessonSerializer
     permission_classes = [permissions.IsAuthenticated]
+    
 
 
 class AnswerViewSet(viewsets.ModelViewSet):
@@ -97,7 +99,12 @@ Params:
 class LessonEnrollViewSet(APIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = LessonEnrollSerializer
-    queryset = Lessons.objects.all()
+    queryset = RelationStudentsLessons.objects.all()
+
+    def get(self, request, pk):
+        response = LessonEnrollSerializer(get_object_or_404(RelationStudentsLessons, pk=1)).data
+        return  Response(data=response, status=200)
+    
 
     def post(self, request, pk):
         lesson = get_object_or_404(Lessons, pk=pk)

@@ -12,9 +12,9 @@ from django.http import JsonResponse
 
 class LessonSerializer(serializers.ModelSerializer):
     courses = serializers.StringRelatedField(
-        many=False,
+        many=False
     )
-
+ 
     class Meta: 
         model = Lessons
         fields = '__all__'
@@ -61,8 +61,13 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class LessonEnrollSerializer(serializers.ModelSerializer):
+    student = serializers.StringRelatedField(
+        many=False,
+    )
+    lesson = LessonSerializer(many=False)
+
     class Meta:
-        model = Lessons
+        model = RelationStudentsLessons
         fields = '__all__'
 
 
