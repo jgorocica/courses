@@ -1,3 +1,18 @@
+# Instructions 
+
+### How to run the API 
+>  `$ cp docker-compose.yml.example cp docker-compose.yml` 
+
+>  `$ docker-compose up`
+
+> Username: admin Password: admin1234 
+
+> the API's frontend is located at http://localhost:8000/api/v1/redoc
+
+> In redoc the last "createLesson" is for enroll a lesson. 
+
+> In redoc the last "createRelationStudentlesson" is for take a lesson. 
+
 # Backend developer position challenge
 
 #### Description
